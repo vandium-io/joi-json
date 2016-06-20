@@ -1,0 +1,13 @@
+examples
+
+coverage
+
+benchmark
+
+test
+
+.travis.yml
+
+.jshintrc
+
+.istanbul.yml
