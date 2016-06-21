@@ -1,6 +1,6 @@
 'use strict';
 
-const builder = require( '../lib' ).builder( require( 'joi' ) );
+const builder = require( '../lib' ).builder();
 
 // schema
 let x = {
@@ -55,7 +55,19 @@ let x = {
         required: true
     },
 
-    picture: 'binary:encoding=base64,min=0,max=1024,required'
+    picture: 'binary:encoding=base64,min=0,max=1024,required',
+
+    trythis: {
+
+        type: 'alternatives',
+        try: [ "string:,min=1,required", "number:min=1,max=10,required" ]
+    },
+
+    trythistoo: [
+
+        'number:min=0,max=1,required',
+        'boolean:required'
+    ]
 };
 
 let schema = builder.build( x );
