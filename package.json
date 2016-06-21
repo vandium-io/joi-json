@@ -1,34 +1,34 @@
 {
-    "name": "joi-builder",
-    "description": "Builds Joi schemas from JSON objects",
-    "version": "1.0.0",
-    "main": "lib/index.js",
-    "keywords": [
-        "validation",
-        "joi",
-        "lov",
-        "json",
-        "schema"
-    ],
-    "main": "lib/index.js",
-    "scripts": {
-        "test": "./node_modules/.bin/mocha --recursive",
-        "coverage": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/vandium-io/lov.git"
-    },
-    "author": "Vandium Software, Inc.",
-    "license": "BSD-3-Clause",
-    "dependencies": {
-        "vandium-utils": "^1.0.0"
-    },
-    "devDependencies": {
-        "chai": "^3.5.0",
-        "istanbul": "^0.4.3",
-        "joi": "^8.4.2",
-        "lov": "^1.2.1",
-        "mocha": "^2.5.3"
-    }
+  "name": "joi-builder",
+  "description": "Builds Joi schemas from JSON objects",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "keywords": [
+    "validation",
+    "joi",
+    "lov",
+    "json",
+    "schema"
+  ],
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive",
+    "coverage": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vandium-io/lov.git"
+  },
+  "author": "Vandium Software, Inc.",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "vandium-utils": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
+    "joi": "^8.4.2",
+    "lov": "^1.2.1",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
+  }
 }
