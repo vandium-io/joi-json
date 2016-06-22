@@ -64,7 +64,7 @@ let jsonSchema = {
 let schema = builder.build( jsonSchema );
 ```
 
-Which would yield the equivalent of the following `joi` expression:
+Which would yield the equivalent to the following `joi` schema:
 
 ```js
 
