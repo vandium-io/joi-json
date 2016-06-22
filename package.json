@@ -1,5 +1,5 @@
 {
-  "name": "joi-builder",
+  "name": "joi-json",
   "description": "Builds Joi schemas from JSON objects",
   "version": "1.0.0",
   "main": "lib/index.js",
