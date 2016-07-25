@@ -1,7 +1,7 @@
 {
   "name": "joi-json",
   "description": "Builds Joi schemas from JSON objects",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "keywords": [
     "validation",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vandium-io/lov.git"
+    "url": "https://github.com/vandium-io/joi-json.git"
   },
   "author": "Vandium Software, Inc.",
   "license": "BSD-3-Clause",
