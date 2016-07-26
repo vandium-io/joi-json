@@ -41,7 +41,7 @@ describe( 'lib/index', function() {
             let builder = index.builder();
 
             expect( builder.constructor.name ).to.equal( 'SchemaBuilder' );
-            expect( builder.engine ).to.equal( joi );
+            expect( builder.parser.engine ).to.equal( joi );
         });
 
         it( 'use lov when joi is not present', function() {
@@ -51,7 +51,7 @@ describe( 'lib/index', function() {
             let builder = index.builder();
 
             expect( builder.constructor.name ).to.equal( 'SchemaBuilder' );
-            expect( builder.engine ).to.equal( lov );
+            expect( builder.parser.engine ).to.equal( lov );
         });
 
         it( 'use custom validation engine', function() {
@@ -61,7 +61,7 @@ describe( 'lib/index', function() {
             let builder = index.builder( customEngine );
 
             expect( builder.constructor.name ).to.equal( 'SchemaBuilder' );
-            expect( builder.engine ).to.equal( customEngine );
+            expect( builder.parser.engine ).to.equal( customEngine );
         });
 
         it( 'fail: when engines do not exist', function() {
