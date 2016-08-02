@@ -28,6 +28,7 @@ describe( 'lib/parser', function() {
 
         stringSchema.required = sinon.stub().returns( stringSchema );
         stringSchema.max = sinon.stub().returns( stringSchema );
+        stringSchema.trim = sinon.stub().returns( stringSchema );
 
         objectSchema = { };
 
@@ -113,7 +114,23 @@ describe( 'lib/parser', function() {
                 expect( stringSchema.max.called ).to.be.false;
             });
 
-            [ 'string', 'boolean', 'number', 'any', 'date', 'binary' ].forEach( function( type ) {
+            it( 'string type', function() {
+
+                let returnValue = parser.parse( 'string:required' );
+
+                expect( returnValue ).to.equal( stringSchema );
+
+                expect( engine.string.calledOnce ).to.be.true;
+                expect( engine.string.withArgs().calledOnce ).to.be.true;
+
+                expect( stringSchema.required.calledOnce ).to.be.true;
+                expect( stringSchema.required.withArgs().calledOnce ).to.be.true;
+
+                expect( stringSchema.trim.calledOnce ).to.be.true;
+                expect( stringSchema.trim.withArgs().calledOnce ).to.be.true;
+            });
+
+            [ 'boolean', 'number', 'any', 'date', 'binary' ].forEach( function( type ) {
 
                 it( type + ' type', function() {
 
@@ -126,7 +143,7 @@ describe( 'lib/parser', function() {
 
                     engine[ type ] = sinon.stub().returns( typeSchema );
 
-                    let returnValue = parser.parse( { type, required: true } );
+                    let returnValue = parser.parse( `${type}:required` );
 
                     expect( returnValue ).to.equal( testSchema );
 
@@ -134,7 +151,7 @@ describe( 'lib/parser', function() {
                     expect( engine[ type ].withArgs().calledOnce ).to.be.true;
 
                     expect( typeSchema.required.calledOnce ).to.be.true;
-                    expect( typeSchema.required.withArgs( true ).calledOnce ).to.be.true;
+                    expect( typeSchema.required.withArgs().calledOnce ).to.be.true;
                 });
             });
 
@@ -151,8 +168,11 @@ describe( 'lib/parser', function() {
                 let firstNameSchema = { name: 'first' };
                 let lastNameSchema = { name: 'last' };
 
-                stringSchema.required.onFirstCall().returns( firstNameSchema );
-                stringSchema.required.onSecondCall().returns( lastNameSchema );
+                stringSchema.required.onFirstCall().returns( stringSchema );
+                stringSchema.required.onSecondCall().returns( stringSchema );
+
+                stringSchema.trim.onFirstCall().returns( firstNameSchema );
+                stringSchema.trim.onSecondCall().returns( lastNameSchema );
 
                 parser.parse( config );
 
@@ -178,7 +198,8 @@ describe( 'lib/parser', function() {
                 numberSchema.required.returns( schema1 );
 
                 let schema2 = { two: 2};
-                stringSchema.required.returns( schema2 );
+                stringSchema.required.returns( stringSchema );
+                stringSchema.trim.returns( schema2 );
 
                 parser.parse( config );
 
@@ -197,7 +218,9 @@ describe( 'lib/parser', function() {
                 numberSchema.required.returns( schema1 );
 
                 let schema2 = { two: 2};
-                stringSchema.required.returns( schema2 );
+                stringSchema.required.returns( stringSchema );
+                stringSchema.trim.returns( schema2 );
+
 
                 parser.parse( config );
 
@@ -214,6 +237,25 @@ describe( 'lib/parser', function() {
 
                 expect( parser.parse.bind( parser, config ) ).to.throw( 'unknown type: special' );
             });
+
+            it( 'with additional spaces between properties', function() {
+
+                let returnValue = parser.parse( 'string: max=60, trim, required' );
+
+                expect( returnValue ).to.equal( stringSchema );
+
+                expect( engine.string.calledOnce ).to.be.true;
+                expect( engine.string.withArgs().calledOnce ).to.be.true;
+
+                expect( stringSchema.max.calledOnce ).to.be.true;
+                expect( stringSchema.max.withArgs( 60 ).calledOnce ).to.be.true;
+
+                expect( stringSchema.required.calledOnce ).to.be.true;
+                expect( stringSchema.required.withArgs().calledOnce ).to.be.true;
+
+                expect( stringSchema.trim.calledOnce ).to.be.true;
+                expect( stringSchema.trim.withArgs().calledOnce ).to.be.true;
+            });
         });
 
         describe( '.buildSchema', function() {
@@ -222,10 +264,10 @@ describe( 'lib/parser', function() {
 
                 let testSchema = { string: true };
 
-                let stringSchema = {
+                let stringSchema = { };
 
-                    required: sinon.stub().returns( testSchema )
-                };
+                stringSchema.required = sinon.stub().returns( stringSchema );
+                stringSchema.trim = sinon.stub().returns( testSchema );
 
                 let engine = {
 
