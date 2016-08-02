@@ -40,7 +40,7 @@ describe( 'lib/base', function() {
 
                 let config = {
 
-                    noParam: undefined,
+                    noParam: null,
                     withParam: 'param!'
                 };
 
