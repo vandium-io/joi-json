@@ -48,7 +48,7 @@ let jsonSchema = {
         street2: 'string:min=1,max=80',
         city: 'string:min=1,max=40,required',
         state: 'string:min=1,max=40,required',
-        postal: 'string:min=1,max=20,required'
+        postal: 'string:min=1,max=20,required',
 
         '@required': true   // needs the '@' to indicate that "required" is a property
     },
