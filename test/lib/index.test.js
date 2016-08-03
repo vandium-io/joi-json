@@ -132,9 +132,14 @@ describe( 'lib/index', function() {
 
     describe( 'Joi schema cases', function() {
 
-        it( 'string', function() {
+        let parser;
 
-            let parser = index.parser( joi );
+        beforeEach( function() {
+
+            parser = index.parser( joi );
+        });
+
+        it( 'string', function() {
 
             let schema = parser.parse( 'string: min=1, max=60, required' );
 
@@ -156,8 +161,6 @@ describe( 'lib/index', function() {
 
         it( 'uuid', function() {
 
-            let parser = index.parser( joi );
-
             let schema = parser.parse( 'uuid:required' );
 
             expect( schema.isJoi ).to.be.true;
@@ -173,8 +176,6 @@ describe( 'lib/index', function() {
 
         it( 'email', function() {
 
-            let parser = index.parser( joi );
-
             let schema = parser.parse( 'email:required' );
 
             expect( schema.isJoi ).to.be.true;
@@ -189,8 +190,6 @@ describe( 'lib/index', function() {
         });
 
         it( 'number', function() {
-
-            let parser = index.parser( joi );
 
             let schema = parser.parse( 'number:min=1,max=10,required' );
 
@@ -209,8 +208,6 @@ describe( 'lib/index', function() {
 
         it( 'boolean', function() {
 
-            let parser = index.parser( joi );
-
             let schema = parser.parse( 'boolean:required' );
 
             expect( schema.isJoi ).to.be.true;
@@ -218,6 +215,45 @@ describe( 'lib/index', function() {
             expect( schema._tests.length ).to.equal( 0 );
 
             expect( schema._flags.presence ).to.equal( 'required' );
+        });
+
+        it( 'object', function() {
+
+            let schema = parser.parse( {
+
+                name: 'string:required',
+                age: 'number'
+            });
+
+            expect( schema.isJoi ).to.be.true;
+            expect( schema._type ).to.equal( 'object' );
+            expect( schema._inner.children.length ).to.equal( 2 );
+
+            expect( schema._inner.children[0].key ).to.equal( 'name' );
+            expect( schema._inner.children[0].schema._type ).to.equal( 'string' );
+            expect( schema._inner.children[0].schema._flags.presence ).to.equal( 'required' );
+
+            expect( schema._inner.children[1].key ).to.equal( 'age' );
+            expect( schema._inner.children[1].schema._type ).to.equal( 'number' );
+            expect( schema._inner.children[1].schema._flags.presence ).to.not.exist;
+        });
+
+        it( 'array', function() {
+
+            let schema = parser.parse( {
+
+                '@items': 'string:required'
+            });
+
+            expect( schema.isJoi ).to.be.true;
+            expect( schema._type ).to.equal( 'array' );
+
+            expect( schema._inner.items.length ).to.equal( 1 );
+
+            console.log( schema._inner.items[0] );
+
+            expect( schema._inner.items[0]._type ).to.equal( 'string' );
+            expect( schema._inner.items[0]._flags.presence ).to.equal( 'required' );
         });
     });
 });
