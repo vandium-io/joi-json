@@ -6,6 +6,8 @@ benchmark
 
 test
 
+docs
+
 .travis.yml
 
 .jshintrc
