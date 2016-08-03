@@ -250,10 +250,31 @@ describe( 'lib/index', function() {
 
             expect( schema._inner.items.length ).to.equal( 1 );
 
-            console.log( schema._inner.items[0] );
-
             expect( schema._inner.items[0]._type ).to.equal( 'string' );
             expect( schema._inner.items[0]._flags.presence ).to.equal( 'required' );
+        });
+
+        it( 'alternatives []', function() {
+
+            let schema = parser.parse( [ 'uuid:required', 'number:required' ] );
+
+            expect( schema.isJoi ).to.be.true;
+            expect( schema._type ).to.equal( 'alternatives' );
+
+            expect( schema._inner.matches[0].schema._type ).to.equal( 'string' );
+            expect( schema._inner.matches[0].schema._flags.presence ).to.equal( 'required' );
+
+            expect( schema._inner.matches[1].schema._type ).to.equal( 'number' );
+            expect( schema._inner.matches[1].schema._flags.presence ).to.equal( 'required' );
+
+            let result1 = joi.validate( '3952469a-1b45-4d5e-825c-e25ec8b57cf6', schema );
+            expect( result1.error ).to.be.null;
+
+            let result2 = joi.validate( 42, schema );
+            expect( result2.error ).to.be.null;
+
+            let result3 = joi.validate( 'forty-two', schema );
+            expect( result3.error ).to.exist;
         });
     });
 });
