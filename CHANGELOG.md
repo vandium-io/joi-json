@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.0 (TBD)
+
+Added:
+
+* `uuid`, `guid`, and `email` types
+
+Changed:
+
+* `string` instances have `trim` property set by default
+
+
 ## 1.1.0 (2016-07-26)
 
 Added:

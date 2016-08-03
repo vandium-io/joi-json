@@ -72,27 +72,31 @@ const joi = require( 'joi' );
 
 let schema = {
 
-    firstName: joi.string().min(1).max(60).required(),
+    firstName: joi.string().min(1).max(60).trim().required(),
 
-    lastName: joi.string().min(1).max(60).required(),
+    lastName: joi.string().min(1).max(60).trim().required(),
 
     address: Object.keys( {
 
-            street: joi.string().min(1).max(80).required(),
-            street2: joi.string().min(1).max(80),
-            city: joi.string().min(1).max(40).required(),
-            state: joi.string().min(1).max(40).required(),
-            postal: joi.string().min(1).max(20).required()
+            street: joi.string().min(1).max(80).trim().required(),
+            street2: joi.string().min(1).max(80).trim(),
+            city: joi.string().min(1).max(40).trim().required(),
+            state: joi.string().min(1).max(40).trim().required(),
+            postal: joi.string().min(1).max(20).trim().required()
 
         }).required(),
 
     favNumberOrWord: [
 
-            joi.string().min(1).max(10),
+            joi.string().min(1).max(10).trim(),
             joi.number().min(1).max(100)
         ]
 };
 ```
+
+## Documentation
+
+For information on how to use Joi-JSON, please see our [API documentation](docs)
 
 
 ## Feedback
