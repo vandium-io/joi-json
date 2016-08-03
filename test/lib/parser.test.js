@@ -16,6 +16,8 @@ describe( 'lib/parser', function() {
 
     let objectSchema;
 
+    let arraySchema;
+
     let numberSchema;
 
     let booleanSchema;
@@ -35,6 +37,12 @@ describe( 'lib/parser', function() {
         objectSchema.required = sinon.stub().returns( objectSchema );
         objectSchema.keys = sinon.stub().returns( objectSchema );
 
+        arraySchema = { };
+        arraySchema.max = sinon.stub().returns( arraySchema );
+        arraySchema.items = sinon.stub().returns( arraySchema );
+        arraySchema.required = sinon.stub().returns( stringSchema );
+
+
         numberSchema = {};
         numberSchema.required = sinon.stub().returns( numberSchema );
 
@@ -47,6 +55,7 @@ describe( 'lib/parser', function() {
         engine = {
 
             string: sinon.stub().returns( stringSchema ),
+            array: sinon.stub().returns( arraySchema ),
             object: sinon.stub().returns( objectSchema ),
             alternatives: sinon.stub().returns( alternativesSchema ),
             number: sinon.stub().returns( numberSchema ),
@@ -184,6 +193,32 @@ describe( 'lib/parser', function() {
 
                 expect( objectSchema.required.calledOnce ).to.be.true;
                 expect( objectSchema.required.withArgs( true ).calledOnce ).to.be.true;
+            });
+
+            it( 'array type', function() {
+
+                let config = {
+
+                    friends: {
+
+                        '@items': 'string:max=100',
+                        max: 5,
+                        required: true
+                    }
+                };
+
+                parser.parse( config );
+
+                expect( engine.array.calledOnce ).to.be.true;
+                expect( engine.array.withArgs().calledOnce ).to.be.true;
+
+                expect( engine.string.calledOnce ).to.be.true;
+                expect( engine.string.withArgs().calledOnce ).to.be.true;
+
+                expect( stringSchema.max.calledOnce ).to.be.true;
+                expect( stringSchema.max.withArgs(100).calledOnce ).to.be.true;
+
+                expect( arraySchema.items.calledOnce ).to.be.true;
             });
 
             it( 'alternatives type (with type specified)', function() {

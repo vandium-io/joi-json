@@ -59,7 +59,7 @@ describe( 'lib/array', function() {
 
                     'required': true,
 
-                    items: 'string:min=1,max=200,required'
+                    '@items': 'string:min=1,max=200,required'
                 };
 
                 let nameSchema = {};
@@ -87,7 +87,7 @@ describe( 'lib/array', function() {
 
                     'required': true,
 
-                    items: [ 'string:min=1,max=200,required', 'boolean:required' ]
+                    '@items': [ 'string:min=1,max=200,required', 'boolean:required' ]
                 };
 
                 let nameSchema = { type: 'name' };
@@ -117,7 +117,7 @@ describe( 'lib/array', function() {
 
                     'required': true,
 
-                    ordered: 'string:min=1,max=200,required'
+                    '@ordered': 'string:min=1,max=200,required'
                 };
 
                 let nameSchema = {};
@@ -145,7 +145,7 @@ describe( 'lib/array', function() {
 
                     'required': true,
 
-                    ordered: [ 'string:min=1,max=200,required', 'boolean:required' ]
+                    '@ordered': [ 'string:min=1,max=200,required', 'boolean:required' ]
                 };
 
                 let nameSchema = { type: 'name' };
