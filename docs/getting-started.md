@@ -69,4 +69,4 @@ let schema = {
 };
 ```
 
-** Note: ** Strings are automatically trimmed when using Joi-JSON. To prevent strings from being trimmed, add `trim=false` to your set of properties.
+**Note:** Strings are automatically trimmed when using Joi-JSON. To prevent strings from being trimmed, add `trim=false` to your set of properties.
