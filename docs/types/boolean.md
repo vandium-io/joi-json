@@ -1,11 +1,32 @@
-# boolean
+# Type: `boolean`
 
-The `boolean` type corresponds to the `Joi.boolean()` schema. The following example creates some `boolean` validators:
+The `boolean` type corresponds to the `Joi.boolean()` schema.
+
+# String notation
+
+The following example creates some `boolean` validators:
 
 ```js
 {
     opt_in: 'boolean'
     accept: 'boolean:required'
+}
+```
+
+# Object notation
+
+```js
+{
+    opt_in: {
+
+        '@type': 'boolean'
+    },
+
+    accept: {
+
+        '@type': 'boolean',
+        required: true
+    }
 }
 ```
 

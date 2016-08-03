@@ -1,6 +1,9 @@
-# number
+# Type: `number`
 
-The `number` type corresponds to the `Joi.number()` schema. The following example creates some `number` validators:
+The `number` type corresponds to the `Joi.number()` schema.
+
+# String notation
+The following example creates some `number` validators:
 
 ```js
 {
@@ -9,7 +12,31 @@ The `number` type corresponds to the `Joi.number()` schema. The following exampl
 }
 ```
 
-Most options for number processing are available including:
+# Object notation
+
+```js
+{
+    age: {
+
+        '@type': 'number',
+        max: 120,
+        positive: true,
+        integer: true,
+        required: true
+    },
+
+    fav_num: {
+
+        '@type': 'number',
+        min: 1,
+        max: 100
+    },
+}
+```
+
+## Additional properties
+
+Most operations are available including:
 - `min`
 - `max`
 - `required`

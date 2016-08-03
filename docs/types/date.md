@@ -1,6 +1,10 @@
-# date
+# Type: `date`
 
-The `date` type corresponds to the `Joi.date()` schema. The following example creates a `date` validator:
+The `date` type corresponds to the `Joi.date()` schema.
+
+# String notation
+
+The following example creates a `date` validator:
 
 ```js
 {
@@ -8,7 +12,22 @@ The `date` type corresponds to the `Joi.date()` schema. The following example cr
 }
 ```
 
-Most options for date processing are available including:
+# Object notation
+
+```js
+{
+    bday: {
+
+        '@type': 'date',
+        format: 'YY/MM/DD',
+        min: '1-1-1900'
+    }
+}
+```
+
+## Additional properties
+
+Most operations are available including:
 - `min`
 - `max`
 - `required`

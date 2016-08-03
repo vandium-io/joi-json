@@ -17,4 +17,6 @@ as an alternative that can be embedded into strings and simple JSON syntax.
 
 - [Installation](installation.md)
 - [Getting started](getting-started.md)
+- [String notation](string-notation.md)
+- [Object notation](object-notation.md)
 - [Types](types)

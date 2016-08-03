@@ -1,13 +1,33 @@
-# any
+# Type: `any`
 
 The `any` type corresponds to the `Joi.any()` schema and can represent any type of value. Validation on this type is minimal.
 
+
+## String notation
 
 The following example creates an `any` validator for the `name` object value:
 
 ```js
 {
-    name: 'any:required'
+    name: 'any:required',
+    age: 'any'
+}
+```
+
+## Object notation
+
+```js
+{
+    name: {
+
+        '@type': 'any',
+        required: true
+    },
+
+    age: {
+
+        '@type': 'any',
+    }
 }
 ```
 

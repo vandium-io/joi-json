@@ -1,6 +1,8 @@
-# string
+# Type: `string`
 
-The `string` type corresponds to the `Joi.string()` schema. The following example creates some `string` validators:
+The `string` type corresponds to the `Joi.string()` schema.
+
+## String notation
 
 ```js
 {
@@ -10,7 +12,36 @@ The `string` type corresponds to the `Joi.string()` schema. The following exampl
 }
 ```
 
-Most options for string processing are available including:
+## Object notation
+
+```js
+{
+    name: {
+
+        '@type': 'string',
+        min: 1,
+        max: 100,
+        required: true
+    },
+
+    card: {
+
+        '@type': 'string',
+        creditCard: true
+    },
+
+    computer: {
+
+        '@type': 'string',
+        hostname: true
+    }
+}
+```
+
+## Additional properties
+
+Most operations for string processing are available including:
+
 - `min`
 - `max`
 - `required`
@@ -23,6 +54,9 @@ Most options for string processing are available including:
 - `lowercase`
 - `uppercase`
 - `token`
+
+
+## Automatic string trimming
 
 Strings are automatically trimmed. To disable this functionality, add the `trim=false` property to your schema as in the following example:
 

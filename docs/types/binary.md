@@ -1,6 +1,10 @@
-# binary
+# Type: `binary`
 
-The `binary` type corresponds to the `Joi.binary()` schema. The following example creates a `binary` validator:
+The `binary` type corresponds to the `Joi.binary()` schema.
+
+# String notation
+
+The following example creates a `binary` validator:
 
 ```js
 {
@@ -8,7 +12,21 @@ The `binary` type corresponds to the `Joi.binary()` schema. The following exampl
 }
 ```
 
-Most options for date processing are available including:
+# Object notation
+
+``` js
+{
+    public_key: {
+
+        '@type': 'binary',
+        encoding: 'base64',
+        required: true
+    }
+}
+```
+
+## Additional properties
+Most operations are available including:
 - `min`
 - `max`
 - `required`
