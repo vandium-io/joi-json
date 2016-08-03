@@ -225,7 +225,7 @@ describe( 'lib/parser', function() {
 
                 let config = {
 
-                    type: 'alternatives',
+                    '@type': 'alternatives',
                     try: [ 'number:required', 'string:required' ]
                 };
 

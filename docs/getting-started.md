@@ -11,7 +11,7 @@ let jsonSchema = {
 
     lastName: { // string using object notation
 
-        type: 'string',
+        '@type': 'string',
         min: 1,
         max: 60,
         required: true

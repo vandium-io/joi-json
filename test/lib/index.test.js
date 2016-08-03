@@ -106,7 +106,7 @@ describe( 'lib/index', function() {
 
                 let schema = builder.build( {
 
-                        type: 'string',
+                        '@type': 'string',
                         required: true,
                         '@schema': true
                     });
