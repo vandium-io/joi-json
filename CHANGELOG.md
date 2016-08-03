@@ -1,6 +1,6 @@
 # Change Log
 
-## 2.0.0 (TBD)
+## 2.0.0 (2016-08-03)
 
 Added:
 
@@ -9,6 +9,7 @@ Added:
 Changed:
 
 * `string` instances have `trim` property set by default
+* `type` property changed to `@type`
 
 
 ## 1.1.0 (2016-07-26)
