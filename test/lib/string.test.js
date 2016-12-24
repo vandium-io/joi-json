@@ -96,6 +96,41 @@ describe( 'lib/string', function() {
                     expect( stringSchema.trim.called ).to.be.false;
                 });
             });
+
+            [
+                [ 'normal operation, with regex string', { required: null, trim: false, regex: '^[a-z0-9]+$' } ]
+            ].forEach( function( test ) {
+
+                it( test[0], function() {
+
+                    let stringSchema = { };
+
+                    stringSchema.required = sinon.stub().returns( stringSchema );
+                    stringSchema.regex = sinon.stub().returns( stringSchema );
+
+                    let engine = {
+
+                        string: sinon.stub().returns( stringSchema )
+                    };
+
+                    let instance = new StringSchema();
+
+                    let config = test[1];
+
+                    let schema = instance.parse( config, engine );
+
+                    expect( schema ).to.equal( stringSchema );
+
+                    expect( engine.string.calledOnce ).to.be.true;
+                    expect( engine.string.withArgs().calledOnce ).to.be.true;
+
+                    expect( stringSchema.required.calledOnce ).to.be.true;
+                    expect( stringSchema.required.withArgs().calledOnce ).to.be.true;
+
+                    expect( stringSchema.regex.called ).to.be.true;
+                    expect( stringSchema.regex.withArgs(new RegExp(test[1].regex)).calledOnce ).to.be.true;
+                });
+            });
         });
     });
 });
