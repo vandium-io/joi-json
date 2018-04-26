@@ -9,10 +9,9 @@ Creates [Joi](https://github.com/hapijs/joi) based object schemas from JSON.
 
 * Create Joi schemas from JSON data
 * Express simple schemas using a single string
-* Works with [LOV](https://github.com/vandium-io/lov)
 * Lightweight with minimal dependencies
 * Compatible with most of the Joi API
-* Node.js 8.10.0 compatible for use in AWS Lambda environments
+* Node.js 8.10 compatible for use in AWS Lambda environments
 
 ## Installation
 
@@ -21,7 +20,7 @@ Install via npm.
 	npm install joi-json --save
 
 
-**Note**: `joi` or `lov` should also be installed
+**Note**: `joi` should also be installed
 
 ## Getting Started
 
