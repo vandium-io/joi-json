@@ -37,3 +37,6 @@ npm-debug.log
 
 # PEM files
 *.pem
+
+.nyc_output
+package-lock.json

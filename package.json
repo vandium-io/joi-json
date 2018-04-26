@@ -1,18 +1,26 @@
 {
   "name": "joi-json",
   "description": "Builds Joi schemas from JSON objects",
-  "version": "2.0.1",
+  "version": "3.0.0-alpha",
   "main": "lib/index.js",
   "keywords": [
     "validation",
     "joi",
-    "lov",
     "json",
     "schema"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive",
-    "coverage": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive"
+    "test": "nyc mocha --recursive"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   },
   "repository": {
     "type": "git",
@@ -24,13 +32,13 @@
     "vandium-utils": "^1.1.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.1.2",
+    "nyc": "^11.4.1",
     "freshy": "^1.0.2",
-    "istanbul": "^0.4.3",
-    "joi": "^8.4.2",
+    "joi": "^13.2.0",
     "lov": "^1.2.1",
-    "mocha": "^2.5.3",
+    "mocha": "^5.1.1",
     "require-blocker": "^1.0.0",
-    "sinon": "^1.17.4"
+    "sinon": "^4.5.0"
   }
 }
