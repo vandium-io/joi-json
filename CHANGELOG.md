@@ -1,20 +1,21 @@
 # Change Log
 
-## 2.2.0 (TBD)
+## 3.0.0 (TBD)
 
 Updated:
 
+* Removed support for `lov`
 * Support for `allow`. Thanks @fabiogomessilva
 
 Changed:
 
-* Tests now build with node 8.10 and use Joi 13.0.0
+* Tests now build with node 10.x and use Joi 14.0.0
 
-## 2.1.0 (2018-09-26)
+Internal:
 
-Added:
+* Code coverage now uses `nyc`
+* Updated test packages
 
-* `string` regex support. Thanks @chrinor2002
 
 ## 2.0.1 (2016-08-03)
 
