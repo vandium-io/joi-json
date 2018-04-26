@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.0 (TBD)
+
+Updated:
+
+* Removed support for `lov`
+
+Internal:
+
+* Code coverage now uses `nyc`
+* Updated test packages
+
 ## 2.0.1 (2016-08-03)
 
 Added:
