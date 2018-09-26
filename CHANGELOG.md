@@ -11,6 +11,12 @@ Internal:
 * Code coverage now uses `nyc`
 * Updated test packages
 
+## 2.1.0 (2018-09-26)
+
+Added:
+
+* `string` regex support. Thanks @chrinor2002
+
 ## 2.0.1 (2016-08-03)
 
 Added:
