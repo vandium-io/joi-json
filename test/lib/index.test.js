@@ -2,15 +2,30 @@
 
 /*jshint expr: true*/
 
+const proxyquire = require( 'proxyquire' );
+
 const expect = require( 'chai' ).expect;
 
-const joi = require( 'joi' );
 
-const index = require( '../../lib/index' );
+//const index = require( '../../lib/index' );
 
 const sinon = require( 'sinon' );
 
 describe( 'lib/index', function() {
+
+    let index;
+
+    let engine;
+
+    beforeEach( function() {
+
+        engine = {};
+
+        index = proxyquire( '../../lib/index', {
+
+            'joi': engine
+        });
+    });
 
     describe( '.builder', function() {
 
@@ -80,6 +95,8 @@ describe( 'lib/index', function() {
     });
 
     describe( 'Joi schema cases', function() {
+
+        const joi = require( 'joi' );
 
         let parser;
 
