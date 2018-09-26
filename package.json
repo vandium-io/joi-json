@@ -33,11 +33,12 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "nyc": "^11.4.1",
     "freshy": "^1.0.2",
     "joi": "^13.2.0",
     "mocha": "^5.1.1",
+    "nyc": "^13.1.0",
+    "proxyquire": "^2.1.0",
     "require-blocker": "^1.0.0",
-    "sinon": "^4.5.0"
+    "sinon": "^6.3.4"
   }
 }
