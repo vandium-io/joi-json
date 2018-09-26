@@ -12,7 +12,7 @@ Creates [Joi](https://github.com/hapijs/joi) based object schemas from JSON.
 * Works with [LOV](https://github.com/vandium-io/lov)
 * Lightweight with minimal dependencies
 * Compatible with most of the Joi API
-* Node.js 4.3.2 compatible for use in AWS Lambda environments
+* Node.js 6.10.0 compatible for use in AWS Lambda environments
 
 ## Installation
 
