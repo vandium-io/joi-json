@@ -6,68 +6,19 @@ const expect = require( 'chai' ).expect;
 
 const joi = require( 'joi' );
 
-const lov = require( 'lov' );
-
-const requireBlocker = require( 'require-blocker' );
+const index = require( '../../lib/index' );
 
 const sinon = require( 'sinon' );
 
-const freshy = require( 'freshy' );
-
-const MODULE_PATH = '../../lib';
-
 describe( 'lib/index', function() {
-
-    let index;
-
-    beforeEach( function() {
-
-        requireBlocker.reset();
-
-        index = require( MODULE_PATH );
-
-    });
-
-    after( function() {
-
-        freshy.unload( MODULE_PATH );
-    });
 
     describe( '.builder', function() {
 
-        it( 'using defaults', function() {
+        it( 'normal operation', function() {
 
             let builder = index.builder();
 
             expect( builder.constructor.name ).to.equal( 'SchemaBuilder' );
-            expect( builder.parser.engine ).to.equal( joi );
-        });
-
-        it( 'use lov when joi is not present', function() {
-
-            requireBlocker.block( 'joi' );
-
-            let builder = index.builder();
-
-            expect( builder.constructor.name ).to.equal( 'SchemaBuilder' );
-            expect( builder.parser.engine ).to.equal( lov );
-        });
-
-        it( 'use custom validation engine', function() {
-
-            let customEngine = {};
-
-            let builder = index.builder( customEngine );
-
-            expect( builder.constructor.name ).to.equal( 'SchemaBuilder' );
-            expect( builder.parser.engine ).to.equal( customEngine );
-        });
-
-        it( 'fail: when engines do not exist', function() {
-
-            requireBlocker.block( 'joi', 'lov' );
-
-            expect( index.builder.bind( null ) ).to.throw( 'cannot find validation engine' );
         });
     });
 
@@ -76,8 +27,6 @@ describe( 'lib/index', function() {
         describe( 'build', function() {
 
             let builder;
-
-            let engine = {};
 
             let stringSchema;
 
@@ -88,7 +37,7 @@ describe( 'lib/index', function() {
                 stringSchema.required = sinon.stub().returns( stringSchema );
                 stringSchema.trim =sinon.stub().returns( stringSchema );
 
-                builder = index.builder( engine );
+                builder = index.builder();
 
                 engine.string = sinon.stub().returns( stringSchema );
             });
