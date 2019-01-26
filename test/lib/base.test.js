@@ -56,6 +56,27 @@ describe( 'lib/base', function() {
 
                 expect( specialSchema.withParam.calledOnce ).to.be.true;
                 expect( specialSchema.withParam.withArgs( 'param!' ).calledOnce ).to.be.true;
+
+                instance = new BaseSchema( 'allowNull' );
+                specialSchema.allow = sinon.stub().returns( specialSchema );
+
+                engine = {
+                    allowNull: sinon.stub().returns( specialSchema )
+                };
+
+                config =  { '@type': 'number', allow: null }
+                schema = instance.parse( config, engine );
+
+                expect( schema ).to.equal( specialSchema );
+                expect( schema.allow ).to.be.a( 'function' );
+
+                expect( engine.allowNull.calledOnce ).to.be.true;
+                expect( engine.allowNull.withArgs().calledOnce ).to.be.true;
+
+                expect( specialSchema.allow.calledOnce ).to.be.true;
+                expect( specialSchema.allow.withArgs().calledOnce ).to.be.true;
+                expect( specialSchema.allow.withArgs(null).calledOnce ).to.be.true;
+
             });
 
             it( 'unknown method', function() {
