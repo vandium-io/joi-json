@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.2.0 (TBD)
+
+Updated:
+
+* Support for `allow`. Thanks @fabiogomessilva
+
+Changed:
+
+* Tests now build with node 8.10 and use Joi 13.0.0
+
 ## 2.1.0 (2018-09-26)
 
 Added:
