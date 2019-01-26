@@ -33,6 +33,28 @@ describe( 'lib/convert', function() {
         });
     });
 
+    [ 'allow' ].forEach( function( key ) {
+
+        it( 'allow types: ' + key, function() {
+            
+            expect( convert( 'number', key, '100' ) ).to.equal( 100 );
+            expect( convert( 'number', key, 100 ) ).to.equal( 100 );
+            expect( convert( 'number', key, 'null' ) ).to.be.null;
+
+            expect( convert( 'boolean', key, undefined ) ).to.be.true;
+            expect( convert( 'boolean', key, 'true' ) ).to.be.true;
+            expect( convert( 'boolean', key, true ) ).to.be.true;
+            expect( convert( 'boolean', key, 'null' ) ).to.be.null;
+
+            expect( convert( '_default', key, '100' ) ).to.equal( '100' );
+            expect( convert( '_default', key, 100 ) ).to.equal( 100 );
+            expect( convert( '_default', key, 'true' ) ).to.equal( 'true' );
+            expect( convert( '_default', key, true ) ).to.be.true;
+            expect( convert( '_default', key, 'null' ) ).to.be.null;
+
+        });
+    });
+
     it( 'unknown key', function() {
 
         expect( convert( 'any', 'special', '42' ) ).to.equal( '42' );
