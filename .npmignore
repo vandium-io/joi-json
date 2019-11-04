@@ -1,15 +1,1 @@
-examples
-
-coverage
-
-benchmark
-
-test
-
-docs
-
-.travis.yml
-
-.jshintrc
-
-.istanbul.yml
+lib/**/__tests__/**

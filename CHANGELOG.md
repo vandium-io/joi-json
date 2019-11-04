@@ -9,7 +9,8 @@ Updated:
 Internal:
 
 * Code coverage now uses `nyc`
-* Updated test packages
+* Updated dependencies
+* Refactored tests
 
 ## 2.1.0 (2018-09-26)
 
