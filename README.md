@@ -25,8 +25,6 @@ Install via npm.
 ## Getting Started
 
 ```js
-'use strict';
-
 const builder = require( 'joi-json' ).builder();
 
 let jsonSchema = {
