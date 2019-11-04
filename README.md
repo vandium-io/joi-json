@@ -11,7 +11,7 @@ Creates [Joi](https://github.com/hapijs/joi) based object schemas from JSON.
 * Express simple schemas using a single string
 * Lightweight with minimal dependencies
 * Compatible with most of the Joi API
-* Node.js 8.10 compatible for use in AWS Lambda environments
+* Node.js 10.x compatible for use in AWS Lambda environments
 
 ## Installation
 

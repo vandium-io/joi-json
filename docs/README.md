@@ -7,10 +7,9 @@ as an alternative that can be embedded into strings and simple JSON syntax.
 
 - Create Joi schemas from JSON data
 - Express simple schemas using a single string
-- Works with [`LOV`](https://github.com/vandium-io/lov)
 - Lightweight with minimal dependencies
 - Compatible with most of the Joi API
-- Node.js 8.10.0 compatible for use in AWS Lambda environments
+- Node.js 10.x compatible for use in AWS Lambda environments
 
 
 ## Table of Contents

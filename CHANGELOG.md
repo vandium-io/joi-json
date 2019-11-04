@@ -5,6 +5,17 @@
 Updated:
 
 * Removed support for `lov`
+
+Internal:
+
+* Code coverage now uses `nyc`
+* Updated test packages
+
+## 2.1.0 (2018-09-26)
+
+Updated:
+
+* Removed support for `lov`
 * Support for `allow`. Thanks @fabiogomessilva
 
 Changed:
