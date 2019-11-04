@@ -1,9 +1,10 @@
 # Change Log
 
-## 3.0.0 (TBD)
+## 3.0.0 (2019-11-04)
 
 Updated:
 
+* Support for `allow`. Thanks @fabiogomessilva
 * Removed support for `lov`
 
 Internal:
@@ -11,6 +12,8 @@ Internal:
 * Code coverage now uses `nyc`
 * Updated dependencies
 * Refactored tests
+* Tests now build with node 10.x and use Joi 14.0.0
+
 
 ## 2.1.0 (2018-09-26)
 
