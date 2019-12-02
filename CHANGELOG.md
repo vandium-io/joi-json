@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.0 (TBD)
+
+Breaking:
+
+* Support current version of Joi under `@hapi` organization. This version
+will no longer support the previous `joi` package. Be sure to include a dependency
+of `@hapi/joi` in your project dependencies.
+
 ## 3.0.0 (2019-11-04)
 
 Updated:
