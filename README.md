@@ -12,6 +12,7 @@ Creates [Joi](https://github.com/hapijs/joi) based object schemas from JSON.
 * Lightweight with minimal dependencies
 * Compatible with most of the Joi API
 * Node.js 10.x compatible for use in AWS Lambda environments
+* Supports `@hapi/joi` implementation
 
 ## Installation
 
@@ -20,7 +21,7 @@ Install via npm.
 	npm install joi-json --save
 
 
-**Note**: `joi` should also be installed
+**Note**: `@hapi/joi` needs to be installed into your project
 
 ## Getting Started
 
@@ -65,7 +66,7 @@ Which would yield the equivalent to the following `joi` schema:
 
 ```js
 
-const joi = require( 'joi' );
+const joi = require( '@hapi/joi' );
 
 let schema = {
 

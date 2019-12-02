@@ -10,6 +10,7 @@ as an alternative that can be embedded into strings and simple JSON syntax.
 - Lightweight with minimal dependencies
 - Compatible with most of the Joi API
 - Node.js 10.x compatible for use in AWS Lambda environments
+- Supports `@hapi/joi` implementation
 
 
 ## Table of Contents

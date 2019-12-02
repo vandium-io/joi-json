@@ -41,7 +41,7 @@ Which would yield the equivalent to the following `joi` schema:
 
 ```js
 
-const joi = require( 'joi' );
+const joi = require( '@hapi/joi' );
 
 let schema = {
 
