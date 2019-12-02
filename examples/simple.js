@@ -1,6 +1,6 @@
 'use strict';
 
-const Joi = require( 'joi' );
+const Joi = require( '@hapi/joi' );
 
 //const builder = require( 'joi-json' ).builder();
 const builder = require( '..' ).builder();
