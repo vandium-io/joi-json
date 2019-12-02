@@ -1,7 +1,7 @@
 {
   "name": "joi-json",
   "description": "Builds Joi schemas from JSON objects",
-  "version": "4.0.0",
+  "version": "4.0.0-beta1",
   "main": "lib/index.js",
   "keywords": [
     "validation",
